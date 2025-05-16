@@ -69,6 +69,7 @@
             <input
               type="text"
               id="username"
+              required
               class="outline-none bg-[#F1EFEC] text-[#030303] rounded-xl px-3 py-2 w-full"
               placeholder="eg. John Doe"
             />
@@ -77,10 +78,9 @@
             <label for="student-id" class="text-sm ml-3">Student ID(*)</label>
             <input
               type="number"
+              required
               id="student-id"
               class="outline-none bg-[#F1EFEC] text-[#030303] rounded-xl px-3 py-2 w-full"
-              min="10000"
-              max="99999"
               placeholder="eg. 54123"
             />
           </div>
@@ -89,6 +89,7 @@
             <input
               type="email"
               id="email"
+              required
               class="outline-none bg-[#F1EFEC] text-[#030303] rounded-xl px-3 py-2 w-full"
               placeholder="eg. user123@abc.com"
             />
@@ -98,16 +99,19 @@
             <input
               type="number"
               id="mobile-no"
+              required
               class="outline-none bg-[#F1EFEC] text-[#030303] rounded-xl px-3 py-2 w-full"
-              min="1000000000"
-              max="9999999999"
-              placeholder="eg. 0000000000"
+              placeholder="eg. 9876543210"
             />
+          </div>
+          <div id="input-error" class="text-sm text-red-500 invisible">
+            All fields are mendatory
           </div>
           <div>
             <button
+              id="submit-button"
               type="button"
-              class="px-10 py-3 rounded-xl mt-6 bg-[#D4C9BE] text-[#030303] font-extrabold transition duration-500 hover:scale-105 text-lg"
+              class="px-10 py-2 rounded-xl mt-1.5 bg-[#D4C9BE] text-[#030303] font-extrabold transition duration-500 hover:scale-105 text-lg"
             >
               Submit
             </button>
@@ -130,19 +134,11 @@
                 <th scope="col" class="px-6 py-3">Mobile No.</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="">
-                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                  51782
-                </th>
-                <td class="px-6 py-4">Aayush Joshi</td>
-                <td class="px-6 py-4">aayushjoshi1006@gmail.com</td>
-                <td class="px-6 py-4">8477804397</td>
-                <td class="px-6 py-4">Edit Delete</td>
-              </tr>
-            
-            </tbody>
+            <tbody id="table-body"></tbody>
           </table>
+          <div id="empty-record" class="text-center text-red-500 hidden mt-5">
+            No student record available
+          </div>
         </div>
       </section>
     </main>
