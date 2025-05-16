@@ -118,6 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // function for intserting data object into local storage
   function dataEntryFromLocal() {
+    studentDataArray = studentDataArray.sort(
+      (obj1, obj2) => obj1.student_id - obj2.student_id
+    );
     localStorage.setItem("studentData", JSON.stringify(studentDataArray));
     tableBody.innerHTML = "";
     if (studentDataArray.length === 0) {
@@ -128,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!emptyRecord.classList.contains("hidden")) {
         emptyRecord.classList.add("hidden");
       }
-      console.log(emptyRecord.classList.contains("hidden"));
+
       studentDataArray.forEach((element) => {
         writingInTable(element);
       });
@@ -157,19 +160,22 @@ document.addEventListener("DOMContentLoaded", () => {
     tr.innerHTML = `<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                   ${obj["student_id"]}
                 </th>
-                <td class="px-6 py-4">${obj["student_name"]}</td>
-                <td class="px-6 py-4">${obj["email"]}</td>
-                <td class="px-6 py-4">${obj["mobile_no"]}</td>
-                <td class="px-6 py-4">
+                <td class="xl:px-6 px-2 py-4">${obj["student_name"]}</td>
+                <td class="xl:px-6 px-2 py-4">${obj["email"].replace(
+                  "@",
+                  "<wbr>@"
+                )}</td>
+                <td class="xl:px-6 px-2 py-4">${obj["mobile_no"]}</td>
+                <td class="xl:px-6 px-2 py-4">
                   <button
                     class="button-style" id="edit-btn"
                   >
-                    Edit
+                    ✏️
                   </button>
                   <button
                     class="button-style" id="delete-btn"
                   >
-                    Delete
+                    🗑️
                   </button>
                   
                 </td>`;
@@ -177,26 +183,23 @@ document.addEventListener("DOMContentLoaded", () => {
     tableBody.appendChild(tr);
 
     tr.addEventListener("click", (e) => {
-      if (e.target.innerText.toLowerCase().trim() === "edit") {
+      if (e.target.innerText.toLowerCase().trim() === "✏️") {
         let parentId = e.target.closest("tr").id;
 
         let currentdata = studentDataArray.filter(
           (obj) => parentId === obj["student_id"]
         )[0];
         editDataEntry(currentdata);
-        console.log("clicked");
-        console.log(studentDataArray);
 
         studentDataArray = studentDataArray.filter(
           (obj) => obj["student_id"] !== parentId
         );
-        console.log(studentDataArray);
+
         dataEntryFromLocal();
       }
     });
     tr.addEventListener("click", (e) => {
-      if (e.target.innerText.toLowerCase().trim() === "delete") {
-        console.log("clicked");
+      if (e.target.innerText.toLowerCase().trim() === "🗑️") {
         let parentId = e.target.closest("tr").id;
 
         let currentdata = studentDataArray.filter(

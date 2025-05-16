@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Registration System</title>
+    <link rel="shortcut icon" href="./favicon/school.svg" type="image/svg" />
     <link href="./output.css" rel="stylesheet" />
   </head>
   <body class="bg-[#F1EFEC] text-[#030303] font-mono">
     <!-- header section for the heading and brief description -->
     <header
-      class="relative flex justify-center items-center bg-[#123458] text-[#F1EFEC] min-h-[50vh] flex-col"
+      class="relative flex justify-center items-center bg-[#123458] text-[#F1EFEC] 2xl:min-h-[50vh] p-4 flex-col pb-20"
     >
       <h1
-        class="text-center text-9xl w-fit px-5 py-3 mt-3 transition duration-700 hover:scale-105 cursor-pointer"
+        class="text-center 2xl:text-9xl text-3xl w-fit px-5 py-3 mt-3 transition duration-700 hover:scale-105 cursor-pointer"
       >
         <span class="text-red-500">Smart</span>Student.Reg
       </h1>
@@ -42,7 +43,7 @@
         </a>
       </button>
       <p
-        class="w-[30vw] text-[#D4C9BE] font-light mt-4 text-center text-lg italic"
+        class="2xl:w-[30vw] text-[#D4C9BE] font-light mt-4 text-center 2xl:text-lg text-sm italic"
       >
         <b class="font-extrabold">SmartStudentReg</b> is a streamlined student
         registration system that allows students to securely register their
@@ -53,13 +54,13 @@
       </p>
     </header>
     <main
-      class="flex justify-between items-center mx-auto w-[80vw] pt-20 gap-4"
+      class="flex justify-between items-center mx-auto 2xl:w-[80vw] 2xl:pt-7 pt-6 gap-4 2xl:flex-row flex-col"
     >
       <!-- section for the form input of the field details  -->
 
       <section>
         <div
-          class="flex justify-center items-center flex-col bg-[#123458] text-[#F1EFEC] p-6 rounded-2xl shadow-2xl gap-3 w-[30vw] h-[40vh]"
+          class="flex justify-center items-center flex-col bg-[#123458] text-[#F1EFEC] p-6 rounded-2xl shadow-2xl gap-3 2xl:w-[30vw] 2xl:h-[45vh] w-[90vw]"
         >
           <h2 class="text-2xl font-extrabold mb-4">
             Student Registration form
@@ -121,17 +122,17 @@
 
       <!-- section for displaying all the student details -->
 
-      <section class="w-[45vw]">
+      <section class="2xl:w-[45vw] my-3">
         <div
-          class="relative overflow-x-auto bg-[#123458] text-[#F1EFEC] p-6 rounded-2xl shadow-2xl h-[40vh]"
+          class="relative overflow-x-auto bg-[#123458] text-[#F1EFEC] 2xl:p-6 p-1 rounded-2xl shadow-2xl h-[45vh] mx-2 2xl:min-w-[45vw]  min-w-[90vw]"
         >
           <table class="w-full text-sm text-left rtl:text-right">
             <thead class="text-base uppercase text-red-500">
               <tr>
-                <th scope="col" class="px-6 py-3">Student ID.</th>
-                <th scope="col" class="px-6 py-3">Name</th>
-                <th scope="col" class="px-6 py-3">Email</th>
-                <th scope="col" class="px-6 py-3">Mobile No.</th>
+                <th scope="col" class="2xl:px-6 px-2 py-3">Student ID.</th>
+                <th scope="col" class="2xl:px-6 px-2 py-3">Name</th>
+                <th scope="col" class="2xl:px-6 px-2 py-3">Email</th>
+                <th scope="col" class="2xl:px-6 px-2 py-3">Mobile No.</th>
               </tr>
             </thead>
             <tbody id="table-body"></tbody>
